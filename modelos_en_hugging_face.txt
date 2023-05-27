@@ -1,0 +1,3 @@
+Todos los modelos pre-entrenados necesarios para poder utilizar "VoiceIt!" se encuentran en Hugging Face 
+|
+|- Modelos - [https://huggingface.co/spaces/ImPavloh/voiceit/tree/main/modelos]
