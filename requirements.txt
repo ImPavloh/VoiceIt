@@ -1,0 +1,2 @@
+so-vits-svc-fork
+gradio
