@@ -186,7 +186,7 @@ with gr.Blocks(css=css,title="VoiceIt! - Pavloh", theme=gr.themes.Soft(primary_h
     b1 = gr.Button("🎤 Cambiar voz",variant="primary")
     b0.click(clear, outputs=[d1, audio, t1])
     b1.click(convert, inputs=[d1, audio], outputs=[a2, t1])
-  gr.HTML("""<center><i>Ten en cuenta que los audios deben de ser formato wav, contener solamente una voz y estar libres de ruido o música de fondo.<br>Al utilizar este sitio web, aceptas nuestra <a style="text-decoration: underline;"href="https://huggingface.co/spaces/ImPavloh/VoiceIt/blob/main/LICENSE">licencia</a> y <a style="text-decoration: underline;"href="https://huggingface.co/spaces/ImPavloh/VoiceIt/blob/main/TERMINOS_DE_USO">condiciones de uso</a>.</i></center>""")
+  gr.HTML("""<center><i>Ten en cuenta que los audios deben de ser formato wav, contener solamente una voz y estar libres de ruido o música de fondo.<br>Al utilizar este sitio web, aceptas nuestra <a style="text-decoration: underline;"href="https://github.com/ImPavloh/voiceit/blob/main/LICENSE">licencia</a> y <a style="text-decoration: underline;"href="https://github.com/ImPavloh/voiceit/blob/main/TERMINOS_DE_USO.txt">condiciones de uso</a>.</i></center>""")
 '''
 with gr.Row():
       with gr.Accordion(label="Licencia", open=False):
