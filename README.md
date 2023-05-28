@@ -32,7 +32,8 @@ Puedes utilizar VoiceIt! online en **https://voiceit.pavloh.com** o utilizar tus
 2. Cambia al directorio del proyecto:
 `cd voiceit`
 
-3. Crea una carpeta llamada "modelos" e importa modelos pre-entrenados para utilizar más tarde. En este caso puedes utilizar mis modelos: https://huggingface.co/spaces/ImPavloh/voiceit/tree/main/modelos
+3. Crea una carpeta llamada "modelos" e importa modelos pre-entrenados para utilizar más tarde. En este caso puedes utilizar mis modelos: 
+https://huggingface.co/ImPavloh/Streamers-AI-Voices
 
 
 5. Instala las dependencias necesarias:
