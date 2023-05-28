@@ -6,7 +6,7 @@
 <a href="https://twitter.com/ImPavloh" target="_blank"><img src="https://img.shields.io/badge/Seguir-%231DA1F2.svg?style=for-the-badge&logo=twitter&logoColor=white"></a>
 <a href="https://huggingface.co/spaces/ImPavloh/voiceit/tree/main" target="_blank"><img src="https://img.shields.io/badge/HuggingFace-%23E06011.svg?style=for-the-badge"></a>
 
-**https://pavloh.com/#/voiceit**
+**[Usar VoiceIt! online](https://voiceit.pavloh.com)**
 </div>
 
 # 🎙️ VoiceIt!
@@ -15,7 +15,7 @@ Este proyecto utiliza modelos pre-entrenados para cambiar la voz en archivos de 
 
 # 📚 Información relevante 🚀
 
-Puedes utilizar VoiceIt! online en **https://pavloh.com/#/voiceit** o utilizar tus recursos y alojar el proyecto localmente siguiendo los siguientes pasos.
+Puedes utilizar VoiceIt! online en **https://voiceit.pavloh.com** o utilizar tus recursos y alojar el proyecto localmente siguiendo los siguientes pasos.
 
 ### Requisitos
 
