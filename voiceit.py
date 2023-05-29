@@ -24,7 +24,7 @@ def slice_audio(filepath):
     filename = filename.split("/")[-1]
     os.makedirs(SEGMENTS_DIRNAME, exist_ok=True)
     output_pattern = os.path.join(SEGMENTS_DIRNAME, f"{filename}_%d{extension}")
-    os.system(f"ffmpeg -i {filepath} -f segment -segment_time 75 -c copy {output_pattern}")
+    os.system(f"ffmpeg -i {filepath} -f segment -segment_time 35 -c copy {output_pattern}")
 
 def get_container_format(filename):
     command = ["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "format=format_name", "-of", "default=noprint_wrappers=1:nokey=1", filename]
@@ -151,7 +151,7 @@ with gr.Blocks(css=css,title="VoiceIt! - Pavloh", theme=gr.themes.Soft(primary_h
       <div class="center-container">
           <img src="https://i.imgur.com/DendqCA.png" style="width: 300px; height: auto;"/><br>
           <div style="display: flex; justify-content: center;">
-              <a href="https://huggingface.co/spaces/ImPavloh/VoiceIt/blob/main/LICENSE" target="_blank">
+              <a href="https://github.com/ImPavloh/voiceit/blob/main/LICENSE" target="_blank">
                   <img src="https://img.shields.io/github/license/impavloh/voiceit?style=for-the-badge&logo=github&logoColor=white" alt="Licencia">
               </a>
               <a href="https://github.com/impavloh/voiceit" target="_blank">
@@ -186,7 +186,7 @@ with gr.Blocks(css=css,title="VoiceIt! - Pavloh", theme=gr.themes.Soft(primary_h
     b1 = gr.Button("🎤 Cambiar voz",variant="primary")
     b0.click(clear, outputs=[d1, audio, t1])
     b1.click(convert, inputs=[d1, audio], outputs=[a2, t1])
-  gr.HTML("""<center><i>Ten en cuenta que los audios deben de ser formato wav, contener solamente una voz y estar libres de ruido o música de fondo.<br>Al utilizar este sitio web, aceptas nuestra <a style="text-decoration: underline;"href="https://github.com/ImPavloh/voiceit/blob/main/LICENSE">licencia</a> y <a style="text-decoration: underline;"href="https://github.com/ImPavloh/voiceit/blob/main/TERMINOS_DE_USO.txt">condiciones de uso</a>.</i></center>""")
+  gr.HTML("""<center><i>Ten en cuenta que los audios deben de ser formato wav, contener solamente una voz y estar libres de ruido o música de fondo. Ten en cuenta que los audios deben de ser formato wav, contener solamente una voz y estar libres de ruido o música de fondo.<br>Además, asegúrate de que el nombre del archivo no contenga espacios ni símbolos raros, utilizando solo caracteres alfanuméricos y guiones bajos (_) para separar palabras si es necesario.<br>Al utilizar este sitio web, aceptas nuestra <a style="text-decoration: underline;"href="https://github.com/ImPavloh/voiceit/blob/main/LICENSE">licencia</a> y <a style="text-decoration: underline;"href="https://github.com/ImPavloh/voiceit/blob/main/TERMINOS_DE_USO.txt">condiciones de uso</a>.<br>En caso de que tarde más de 5 minutos procesar el audio es posible que de error por limites del servidor, en ese caso tendrás que utilizar VoiceIt localmente usando tus recursos.</i></center>""")
 '''
 with gr.Row():
       with gr.Accordion(label="Licencia", open=False):
