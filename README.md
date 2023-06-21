@@ -11,7 +11,7 @@
 
 # 🎙️ VoiceIt!
 
-Este proyecto utiliza modelos pre-entrenados para cambiar la voz en archivos de audio. El servicio permite cargar archivos de audio en formato `.wav`, seleccionar un modelo de voz y generar un nuevo archivo de audio con la voz modificada.
+Este proyecto utiliza modelos pre-entrenados para cambiar la voz en archivos de audio. El servicio permite cargar archivos de audio, seleccionar un modelo de voz y generar un nuevo archivo de audio con la voz modificada.
 
 # 📚 Información relevante 🚀
 
@@ -32,12 +32,11 @@ Puedes utilizar VoiceIt! online en **https://voiceit.pavloh.com** o utilizar tus
 2. Cambia al directorio del proyecto:
 `cd voiceit`
 
-3. Crea una carpeta llamada "modelos" e importa modelos pre-entrenados para utilizar más tarde. En este caso puedes utilizar mis modelos: 
-https://huggingface.co/ImPavloh/Streamers-AI-Voices
-
-
-5. Instala las dependencias necesarias:
+3. Instala las dependencias necesarias:
 `pip install -r requirements.txt`
+
+4. Crea una carpeta llamada "modelos" e importa modelos pre-entrenados para utilizar más tarde. En este caso puedes utilizar mis modelos: 
+https://huggingface.co/ImPavloh/Streamers-AI-Voices
 
 5. Ejecuta el script principal:
 `python voiceit.py`
@@ -48,17 +47,16 @@ https://huggingface.co/ImPavloh/Streamers-AI-Voices
 
 2. Selecciona un modelo de voz de la lista desplegable.
 
-3. Carga un archivo de audio en formato `.wav` sin ruido, otras voces o música de fondo.
+3. Carga un archivo de audio sin ruido, otras voces o música de fondo.
 
 4. Haz clic en el botón "Cambiar voz" para generar un nuevo archivo de audio con la voz modificada.
 
-5. Escucha el resultado en el reproductor de audio.
+5. Escucha o descarga el resultado en el reproductor de audio.
 
 6. Puedes borrar los datos y reiniciar el proceso utilizando el botón "Borrar".
 
 ## ⚠️ Advertencia
 
-- Los archivos de audio deben estar en formato `.wav`.
 - Los archivos de audio deben contener solo una voz y estar libres de ruido o música de fondo.
 - El tiempo de conversión dependerá de la duración del audio y del uso de la web (en caso de utilizarlo localmente dependerá de tus recursos)
 
