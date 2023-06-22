@@ -209,9 +209,6 @@ with gr.Blocks(
                         <i> Asegúrate de que el nombre del archivo no contenga espacios ni símbolos raros, utilizando solo caracteres alfanuméricos y guiones bajos (_) para separar palabras si es necesario. </i>
                     </p>
                     <p>
-                        <i> En caso de que tarde más de 5 minutos procesar el audio, es posible que se produzca un error debido a los límites del servidor. En ese caso, tendrás que utilizar VoiceIt localmente usando tus recursos. </i>
-                    </p>
-                    <p>
                         <i> Al utilizar este sitio web, aceptas la <a style="text-decoration: underline;" href="https://github.com/ImPavloh/voiceit/blob/main/LICENSE">licencia</a> y <a style="text-decoration: underline;" href="https://github.com/ImPavloh/voiceit/blob/main/TERMINOS_DE_USO.txt">condiciones de uso</a>. </i>
                     </p>
                 </center>
