@@ -199,7 +199,7 @@ with gr.Blocks(
         b1.click(convert, inputs=[d1, audio], outputs=[a2, t1])
 
     with gr.Row():
-        with gr.Accordion(label="Licencia", open=False):
+        with gr.Accordion(label="Información importante", open=False):
             gr.HTML("""
                 <center>
                     <p>
