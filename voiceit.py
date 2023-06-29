@@ -20,7 +20,7 @@ def slice_audio(filepath):
     filename = os.path.basename(filename)
     os.makedirs(SEGMENTS_DIRNAME, exist_ok=True)
     output_pattern = os.path.join(SEGMENTS_DIRNAME, f"{filename}_%d{extension}")
-    os.system(f"ffmpeg -i {filepath} -f segment -segment_time 35 -c copy {output_pattern}")
+    os.system(f"ffmpeg -i {filepath} -f segment -segment_time 300 -c copy {output_pattern}")
 
 def get_container_format(filename):
     command = ["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "format=format_name", "-of", "default=noprint_wrappers=1:nokey=1", filename]
