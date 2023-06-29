@@ -17,7 +17,7 @@ INFERENCE_OUTPUT_DIRNAME = CURRENT_DIR / "inference_output"
 def slice_audio(filepath):
     assert os.path.exists(filepath), f"No se ha encontrado {filepath}."
     filename, extension = os.path.splitext(filepath)
-    filename = filename.split("\\")[-1]
+    filename = os.path.basename(filename)
     os.makedirs(SEGMENTS_DIRNAME, exist_ok=True)
     output_pattern = os.path.join(SEGMENTS_DIRNAME, f"{filename}_%d{extension}")
     os.system(f"ffmpeg -i {filepath} -f segment -segment_time 35 -c copy {output_pattern}")
