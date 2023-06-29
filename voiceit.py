@@ -11,16 +11,7 @@ import os
 
 CURRENT_DIR = Path(__file__).resolve().parent
 MODELOS = CURRENT_DIR / "modelos"
-SEGMENTS_DIRNAME = CURRENT_DIR / "segments"
 INFERENCE_OUTPUT_DIRNAME = CURRENT_DIR / "inference_output"
-
-def slice_audio(filepath):
-    assert os.path.exists(filepath), f"No se ha encontrado {filepath}."
-    filename, extension = os.path.splitext(filepath)
-    filename = os.path.basename(filename)
-    os.makedirs(SEGMENTS_DIRNAME, exist_ok=True)
-    output_pattern = os.path.join(SEGMENTS_DIRNAME, f"{filename}_%d{extension}")
-    os.system(f"ffmpeg -i {filepath} -f segment -segment_time 300 -c copy {output_pattern}")
 
 def get_container_format(filename):
     command = ["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "format=format_name", "-of", "default=noprint_wrappers=1:nokey=1", filename]
@@ -30,20 +21,10 @@ def get_container_format(filename):
         raise ValueError(f"Error: {error.decode()}")
     return output.decode().strip()
 
-def concatenate_segments(foldername, final_filename):
-    foldername = Path(foldername)
-    assert foldername.exists
-    all_segs = [f for f in sorted(foldername.glob("**/*")) if f.is_file()]
-    with open(foldername / "concat_list.txt", "w") as f:
-        for seg in all_segs:
-            f.write('file ' + str(seg.absolute()).replace("\\", "/") + "\n")
-    os.system(f"ffmpeg -f concat -safe 0 -i {foldername}\\concat_list.txt -codec copy {foldername}\\{final_filename}")
-
 def cleanup_dirs():
-    for dirname in (SEGMENTS_DIRNAME, INFERENCE_OUTPUT_DIRNAME):
-        dir_path = Path(dirname)
-        if dir_path.exists():
-            shutil.rmtree(dir_path)
+    dir_path = Path(INFERENCE_OUTPUT_DIRNAME)
+    if dir_path.exists():
+        shutil.rmtree(dir_path)
 
 def get_speakers():
     global speakers
@@ -74,23 +55,18 @@ def get_speakers():
                         speakers.append(copy.copy(cur_speaker))
     return sorted(speakers, key=lambda x: x["name"].lower())
 
-def run_inference(speaker, seg_path, f0_method, transpose, noise_scale, cluster_ratio):
+def run_inference(speaker, path, f0_method, transpose, noise_scale, cluster_ratio):
     model_path = speaker["model_path"]
     config_path = speaker["cfg_path"]
     cluster_path = speaker["cluster_path"]
     cluster_args = f"-k {cluster_path} -r {cluster_ratio}" if cluster_path and cluster_ratio > 0 else ""
-    inference_cmd = f"svc infer {seg_path.absolute()} -m {model_path} -c {config_path} {cluster_args} -t {transpose} --f0-method {f0_method} -n {noise_scale} -o {INFERENCE_OUTPUT_DIRNAME}/{seg_path.name} --no-auto-predict-f0"
+    inference_cmd = f"svc infer {path.absolute()} -m {model_path} -c {config_path} {cluster_args} -t {transpose} --f0-method crepe -n 0.4 -o {INFERENCE_OUTPUT_DIRNAME}/{path.name} --no-auto-predict-f0"
     result = subprocess.run(inference_cmd.split(), stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     if result.stderr:
         if "AttributeError" in result.stderr:
             return  None, gr.Textbox.update("⚠️ Modelo SVC incompatible.")
-    if not list(Path(SEGMENTS_DIRNAME).glob("*")):
+    if not list(Path(INFERENCE_OUTPUT_DIRNAME).glob("*")):
         return  None, gr.Textbox.update("⚠️ Error.")
-
-def check_audio_format(audio_file):
-    if not audio_file.lower().endswith(".wav"):
-        return False
-    return True
 
 def convert(speaker_box, audio):
     speaker = next((x for x in speakers if x["name"] == speaker_box), None)
@@ -98,26 +74,16 @@ def convert(speaker_box, audio):
         return None, gr.Textbox.update("⚠️ Selecciona un modelo.")
     if not audio:
         return None, gr.Textbox.update("⚠️ Sube un audio.")
-
     file_path = os.path.join(os.getcwd(), str(audio))
-    model_path = os.path.join(os.getcwd(), speaker["model_path"])
-    config_path = os.path.join(os.getcwd(), speaker["cfg_path"])
-    cluster_path = os.path.join(os.getcwd(), speaker["cluster_path"])
-    f0_method = "crepe"
     transpose = 0
-    noise_scale = 0.4
     cluster_ratio = 0
-    if os.path.exists(SEGMENTS_DIRNAME) or os.path.exists(INFERENCE_OUTPUT_DIRNAME):
+    if os.path.exists(INFERENCE_OUTPUT_DIRNAME):
         cleanup_dirs()
-    slice_audio(file_path)
     os.makedirs("inference_output", exist_ok=True)
-    all_segs_paths = sorted(Path(SEGMENTS_DIRNAME).glob("*"))
     ts0 = time.time()
-    for seg_path in all_segs_paths:
-        run_inference(speaker, seg_path, f0_method, transpose, noise_scale, cluster_ratio)
+    run_inference(speaker, Path(file_path), 0, 0, 0.4, 0)
     final_filename = f"output{Path(file_path).suffix}"
-    concatenate_segments(INFERENCE_OUTPUT_DIRNAME, final_filename)
-    shutil.move(Path(INFERENCE_OUTPUT_DIRNAME, final_filename), Path(final_filename))
+    shutil.move(Path(INFERENCE_OUTPUT_DIRNAME, Path(file_path).name), Path(final_filename))
     cleanup_dirs()
     os.remove(file_path)
     ts1 = time.time()
@@ -125,12 +91,10 @@ def convert(speaker_box, audio):
     return final_filename, gr.Textbox.update("👌 ¡Voz cambiada!", label=f"Tiempo total: {tiempo1} segundos")
 
 def clear():
-    shutil.rmtree(SEGMENTS_DIRNAME, ignore_errors=True)
     shutil.rmtree(INFERENCE_OUTPUT_DIRNAME, ignore_errors=True)
     tmp_files = glob.glob("*.tmp")
     for f in tmp_files:
         os.remove(f)
-
     return gr.Dropdown.update(value="Elige un modelo de voz"), None, gr.Textbox.update("🗑️ Datos borrados.", label=f"Información")
 
 
