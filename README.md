@@ -3,63 +3,67 @@
 ![VoiceIt](https://i.imgur.com/DendqCA.png)
   
 <a href="https://github.com/ImPavloh/VoiceIt" target="_blank"><img src="https://img.shields.io/github/license/impavloh/voiceit?style=for-the-badge&logo=github&logoColor=white"></a>
-<a href="https://twitter.com/ImPavloh" target="_blank"><img src="https://img.shields.io/badge/Seguir-%231DA1F2.svg?style=for-the-badge&logo=twitter&logoColor=white"></a>
+<a href="https://twitter.com/ImPavloh" target="_blank"><img src="https://img.shields.io/badge/Follow-%231DA1F2.svg?style=for-the-badge&logo=twitter&logoColor=white"></a>
 <a href="https://huggingface.co/spaces/ImPavloh/voiceit/tree/main" target="_blank"><img src="https://img.shields.io/badge/HuggingFace-%23E06011.svg?style=for-the-badge"></a>
+
+<p><strong>README Language</strong></p>
+<a href="README.md"><img alt="English" src="https://unpkg.com/language-icons/icons/en.svg" width="50px" style="border-top-left-radius: 25px; border-bottom-left-radius: 25px;"></a>
+<a href="README_es.md"><img alt="Spanish" src="https://unpkg.com/language-icons/icons/es.svg" width="50px"></a>
 
 **[Usar VoiceIt! online](https://voiceit.pavloh.com)**
 </div>
 
 # 🎙️ VoiceIt!
 
-Este proyecto utiliza modelos pre-entrenados para cambiar la voz en archivos de audio. El servicio permite cargar archivos de audio, seleccionar un modelo de voz y generar un nuevo archivo de audio con la voz modificada.
+This project uses pre-trained models to change the voice in audio files. The service allows you to upload audio files, select a voice model, and generate a new audio file with the modified voice.
 
-# 📚 Información relevante 🚀
+# 📚 Relevant Information 🚀
 
-Puedes utilizar VoiceIt! online en **https://voiceit.pavloh.com** o utilizar tus recursos y alojar el proyecto localmente siguiendo los siguientes pasos.
+You can use VoiceIt directly online on my website **https://voiceit.pavloh.com** or use your resources and host the project locally by following the steps below.
 
-### Requisitos
+### Requirements
 
 - Python >3.7
 - Gradio
 - FFmpeg
 - FFprobe
 
-### 🛠️ Instalación
+### 🛠️ Installation
 
-1. Clona el repositorio:
+1. Clone the repository:
 `git clone https://github.com/impavloh/voiceit.git`
 
-2. Cambia al directorio del proyecto:
+2. Change to the project directory:
 `cd voiceit`
 
-3. Instala las dependencias necesarias:
+3. Install the necessary dependencies:
 `pip install -r requirements.txt`
 
-4. Crea una carpeta llamada "modelos" e importa modelos pre-entrenados para utilizar más tarde. En este caso puedes utilizar mis modelos: 
+4. Create a folder called "models" and import pre-trained models to use later. In this case, you can use my models: 
 https://huggingface.co/ImPavloh/Streamers-AI-Voices
 
-5. Ejecuta el script principal:
+5. Run the main script:
 `python voiceit.py`
 
-### 📝 Uso
+### 📝 Usage
 
-1. Al ejecutar el archivo voiceit.py se abrirá un terminal con un enlace para poder acceder a la interfaz de VoiceIt!. Por ejemplo: `http://localhost:7860`
+1. When running the voiceit.py file, a terminal will open with a link to access the VoiceIt! interface. For example: `http://localhost:7860`
 
-2. Selecciona un modelo de voz de la lista desplegable.
+2. Select a voice model from the dropdown list.
 
-3. Carga un archivo de audio sin ruido, otras voces o música de fondo.
+3. Upload an audio file without noise, other voices, or background music.
 
-4. Haz clic en el botón "Cambiar voz" para generar un nuevo archivo de audio con la voz modificada.
+4. Click on the "Change voice" button to generate a new audio file with the modified voice.
 
-5. Escucha o descarga el resultado en el reproductor de audio.
+5. Listen or download the result in the audio player.
 
-6. Puedes borrar los datos y reiniciar el proceso utilizando el botón "Borrar".
+6. You can delete the data and restart the process using the "Delete" button.
 
-## ⚠️ Advertencia
+## ⚠️ Warning
 
-- Los archivos de audio deben contener solo una voz y estar libres de ruido o música de fondo.
-- El tiempo de conversión dependerá de la duración del audio y del uso de la web (en caso de utilizarlo localmente dependerá de tus recursos)
+- Audio files should contain only one voice and be free of noise or background music.
+- The conversion time will depend on the duration of the audio and web usage (if used locally it will depend on your resources)
 
-## 📝 Licencia y términos de uso
+## 📝 License and Terms of Use
 
-Al utilizar este proyecto, aceptas la [licencia](https://github.com/ImPavloh/voiceit/blob/main/LICENSE) y los [términos de uso](https://github.com/ImPavloh/voiceit/blob/main/TERMINOS_DE_USO.txt).
+> By using this project, you agree to the [license](https://github.com/ImPavloh/voiceit/blob/main/LICENSE) and [terms of use](https://github.com/ImPavloh/voiceit/blob/main/TERMINOS_DE_USO.txt).
