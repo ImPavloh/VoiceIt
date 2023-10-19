@@ -1,3 +1,0 @@
-Todos los modelos pre-entrenados necesarios para poder utilizar "VoiceIt!" se encuentran en Hugging Face, en caso de que quieras utilizar tu propio modelo recuerda que solo funcionan modelos SVC
-|
-|- Modelos SVC ya entrenados para VoiceIt - [https://huggingface.co/spaces/ImPavloh/voiceit/tree/main/modelos]
