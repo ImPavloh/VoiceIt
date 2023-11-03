@@ -4,13 +4,13 @@
   
 <a href="https://github.com/ImPavloh/VoiceIt" target="_blank"><img src="https://img.shields.io/github/license/impavloh/voiceit?style=for-the-badge&logo=github&logoColor=white"></a>
 <a href="https://twitter.com/ImPavloh" target="_blank"><img src="https://img.shields.io/badge/Follow-%231DA1F2.svg?style=for-the-badge&logo=twitter&logoColor=white"></a>
+<a href="https://voiceit.pavloh.com" target="_blank"><img alt="Online use" src="https://img.shields.io/badge/WEBSITE-401769?style=for-the-badge&logo=react&logoColor=white"></a>
 <a href="https://huggingface.co/spaces/ImPavloh/voiceit/tree/main" target="_blank"><img src="https://img.shields.io/badge/HuggingFace-%23E06011.svg?style=for-the-badge"></a>
 
 <p><strong>README Language</strong></p>
 <a href="README.md"><img alt="English" src="https://unpkg.com/language-icons/icons/en.svg" width="50px" style="border-top-left-radius: 25px; border-bottom-left-radius: 25px;"></a>
 <a href="README_es.md"><img alt="Spanish" src="https://unpkg.com/language-icons/icons/es.svg" width="50px"></a>
 
-**[Usar VoiceIt! online](https://voiceit.pavloh.com)**
 </div>
 
 # 🎙️ VoiceIt!
