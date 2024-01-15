@@ -148,7 +148,7 @@ with gr.Blocks(
             <p style="margin-bottom: 10px; font-size: 94%; line-height: 23px;">Cambia la voz de audios utilizando modelos pre-entrenados de streamers.</p>
         </div>
     """)
-    with gr.Row(elem_id="1").style(equal_height=True):
+    with gr.Row(elem_id="1",equal_height=True):
         with gr.Column():
             d1 = gr.Dropdown([x["name"] for x in get_speakers()], label="📦 Selecciona un modelo", value="Elige un modelo de voz")
             audio = gr.Audio(label="🗣️ Sube un audio", type="filepath")

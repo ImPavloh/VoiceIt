@@ -51,7 +51,7 @@ https://huggingface.co/ImPavloh/Streamers-AI-Voices
 
 2. Select a voice model from the dropdown list.
 
-3. Upload an audio file without noise, other voices, or background music.
+3. Upload an audio file.
 
 4. Click on the "Change voice" button to generate a new audio file with the modified voice.
 
@@ -66,4 +66,4 @@ https://huggingface.co/ImPavloh/Streamers-AI-Voices
 
 ## 📝 License and Terms of Use
 
-> By using this project, you agree to the [license](https://github.com/ImPavloh/voiceit/blob/main/LICENSE) and [terms of use](https://github.com/ImPavloh/voiceit/blob/main/TERMINOS_DE_USO.txt).
+> By using this project, you agree to the [license](https://raw.githubusercontent.com/ImPavloh/VoiceIt/main/LICENSE) and [terms of use](https://raw.githubusercontent.com/ImPavloh/VoiceIt/main/TERMINOS_DE_USO.txt).
